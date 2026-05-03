@@ -59,6 +59,20 @@ bun start
 bun android
 ```
 
+**Android — generate an APK** (release build; JS bundle is included in the APK):
+
+```bash
+bun run android:apk
+```
+
+When the build finishes, install or share this file:
+
+`android/app/build/outputs/apk/release/app-release.apk`
+
+For a debug APK (faster, not optimized for distribution): `bun run android:apk:debug` → `android/app/build/outputs/apk/debug/app-debug.apk`.
+
+This starter signs **release** with the **debug** keystore (see `android/app/build.gradle`). That is fine for local installs and testing. For Play Store distribution, create a release keystore and configure `signingConfigs.release` as described in the [React Native signed APK guide](https://reactnative.dev/docs/signed-apk-android).
+
 Other useful scripts: `bun run lint`, `bun run test`, `bun run clean` (Metro + Android clean).
 
 ---
